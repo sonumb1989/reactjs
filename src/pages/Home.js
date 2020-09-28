@@ -1,38 +1,36 @@
 import React, { Component } from "react";
+import Counter from "../component/counter";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      message: "Super Message !!!",
-      count: 0,
-    };
-  }
+  state = {
+    message: "Welcome !",
+  };
 
   componentDidMount() {
     this.setState({ message: "Updated !" });
   }
 
-  increment = () => {
-    const { count } = this.state;
-    this.setState({ count: count + 1 });
-  };
-
-  decrement = () => {
-    const { count } = this.state;
-    this.setState({ count: count - 1 });
+  displayMessage = (type, count) => {
+    switch (type) {
+      case "+":
+        alert(`Increment. Current value: ${count}`);
+        break;
+      default:
+        alert(`Decrement. Current value: ${count}`);
+        break;
+    }
   };
 
   render() {
-    const { message, count } = this.state;
+    const { message } = this.state;
     return (
       <div>
         <h1>I am Home page</h1>
         <p>{message}</p>
-        <button onClick={this.increment}>Increment</button>
-        <div className="counter">{count}</div>
-        <button onClick={this.decrement}>Decrement</button>
+        <Counter
+          onChange={this.displayMessage}
+          title="I am counter Component"
+        />
       </div>
     );
   }
