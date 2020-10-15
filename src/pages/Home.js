@@ -23,7 +23,6 @@ class Home extends React.Component {
   render() {
     const { services } = this.props;
 
-    debugger;
     return (
       <div>
         <Hero />

@@ -1,10 +1,13 @@
+
+import {FETCH_SERVICES} from 'types'
+
 const INITIAL_STATE = {
-  item: [],
+  items: [],
 };
 
 const servicesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "FETCH_SERVICES":
+    case FETCH_SERVICES:
       return { ...state, items: action.services };
     default:
       return state;
